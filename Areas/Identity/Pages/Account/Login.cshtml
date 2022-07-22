@@ -1,0 +1,138 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = null;                                                                             //for removing layout or for removing common navbar  from that page
+}
+
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--favicon-->
+    <link rel="icon" href="~/images/logo.png" type="image/png" />
+    <!-- loader-->
+    <link href="~/assets/css/pace.min.css" rel="stylesheet" />
+    <script src="~/assets/js/pace.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/css/login.css" rel="stylesheet">
+    <link href="~/assets/css/app.css" rel="stylesheet">
+    <link href="~/assets/css/icons.css" rel="stylesheet">
+    <title>MPCRS-Military Police Control Room Automation System </title>
+    <style>
+        .card-rounded {
+            border: 2px solid blue;
+  
+            border-radius: 25px 25px;
+
+        }
+     
+    </style>
+</head>
+
+<body class="bg-login">
+    <div class="wrapper">
+        <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
+            <div class="container-fluid">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                    <div class="col mx-auto">
+                       
+                        <div class="card-rounded">
+                            <div class="card-body">
+                                <div class="border p-3 ">
+                                    <div class="text-center">
+                                        @* <h3 class="">Sign in</h3>*@
+                                       <div class="aj">
+                                        <div class="mb-4 text-center">
+                                            <img src="~/images/logo.png" width="190" alt="" />
+                                        </div>
+                                        </div>
+                                      
+                                       
+                                    </div>
+
+                                    <div class="login-separater text-center mb-4">
+                                        <span> SIGN IN </span>
+
+                                    </div>
+                                    <div class="form-body">
+
+                                        <form id="account" method="post" class="form-group row g-3">
+
+                                            <hr />
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <div class="col-12">
+                                                <label asp-for="Input.UserName" class="form-label">Username</label>
+                                                <input asp-for="Input.UserName" class="form-control" autocomplete="UserName" aria-required="true" placeholder="Username" />
+                                                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                                            </div>
+
+                                               <div class="col-12">
+                                                <label asp-for="Input.Password" class="inputChoosePassword" class="form-label">Enter Password</label>
+                                                <div class="input-group" id="show_hide_password">
+                                       
+                   
+                                                <input asp-for="Input.Password" type="password" class="form-control"   autocomplete="current-password" aria-required="true" id="myInput" placeholder="Password" /> <a href="javascript:;" class="input-group-text bg-transparent"><input type="checkbox" onclick="myFunction()">@*<i class='bx bx-hide'></i>*@</a>
+                                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                                </div>
+                                                </div>
+
+
+                                          
+
+                                            <div class="col-md-6">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                                    <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
+                                                </div>
+                                            </div>
+
+                                           @* <div class="col-md-6 text-end">
+                                                <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                                            </div>*@
+                                            <div class="col-12">
+                                                <div class="d-grid">
+                                                    <button id="login-submit" type="submit" class="btn btn-primary"><i class="bx bxs-lock-open"></i>Sign in</button>
+
+                                                </div>
+                                            </div>
+                                           @* <div class="col-9 text-end">
+                                                <div class="d-grid">
+                                                    <p>Don't have an account? <a href="/Identity/Account/Register">Register Here</a></p>
+                                                </div>
+                                            </div>*@
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--end row-->
+        </div>
+    </div>
+  
+    <script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+    @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+   
+ 
+ }
+</body>
